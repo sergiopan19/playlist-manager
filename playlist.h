@@ -17,11 +17,11 @@ class Playlist
 		Playlist();
 		~Playlist();
 		void AddSong(const Song&);
-		int FindTitle(const char * t);
-		int FindArtist(const char * a);
-		void FromArtist(const char * a);
-		void Lookup(const char * s);
-		void Delete(const char * s);
+		int FindTitle(const string t);
+		int FindArtist(const string a);
+		void FromArtist(const string a);
+		void Lookup(const string s);
+		void Delete(const string s);
 		void ShowList() const;
 		void InCategory(const Style&);
 		int GetSize() const;

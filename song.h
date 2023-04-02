@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <iomanip>
 using namespace std;
 
@@ -16,7 +16,7 @@ class Song
 public:
   Song();		// default constructor, sets up blank song object
 
-  void Set(const char* t, const char* a, Style st, int sz);
+  void Set(const string t, const string a, Style st, int sz);
 
   // the Set function should allow incoming data to be received through
   //  parameters and loaded into the member data of the object.  (i.e.
@@ -24,14 +24,18 @@ public:
   //  The parameters t, a, st, and sz represent the title, artist, style, 
   //  and size of the song file, respectively.
 
-  const char* GetTitle() const;		// returns the title stored in the object
-  const char* GetArtist() const;	// returns the artist
+  string GetTitle() const;		// returns the title stored in the object
+  string GetArtist() const;	// returns the artist
   int GetSize() const;			// returns the file size in kilobytes
   Style GetCategory() const;		// returns the song category
 
 private:
+  /*
   char title[36];	// may assume title is 35 characters or less
   char artist[21];	// may assume artist name is 20 characters or less
+  */
+  string title;
+  string artist;
   Style category;	// style of the given song
   int size;		// file size, stored in kilobytes
 };

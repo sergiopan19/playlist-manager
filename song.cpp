@@ -45,17 +45,26 @@ ostream& operator<<(ostream& os, const Song& s)
 
 Song::Song()// default constructor, sets up blank song object
 {
+	/*
 	strcpy(title, "");
 	strcpy(artist, "");
+	*/
+	title = "";
+	artist = "";
 	size = 0;
 	
 	//enumeration should default to 0
 }
 
-void Song::Set(const char* t, const char* a, Style st, int sz)
+void Song::Set(const string t, const string a, Style st, int sz)
 {
+	/*
 	strcpy(title, t);
 	strcpy(artist, a);
+	*/
+	title = t;
+	artist = a;
+
 	category = st;
 	
 	if(sz > 0)
@@ -64,9 +73,9 @@ void Song::Set(const char* t, const char* a, Style st, int sz)
 		size = 0;
 }
 
-const char* Song::GetTitle() const {return title;} // returns the title stored in the object
+string Song::GetTitle() const {return title;} // returns the title stored in the object
 
-const char* Song::GetArtist() const	{return artist;} // returns the artist
+string Song::GetArtist() const	{return artist;} // returns the artist
 
 int Song::GetSize() const {return size;}	// returns the file size in kilobytes
 

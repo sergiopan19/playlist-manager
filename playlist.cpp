@@ -31,48 +31,48 @@ void Playlist::AddSong(const Song& s)
 	songList[currentSize++] = s; 	//allocate in next available slot
 }
 
-int Playlist::FindTitle(const char * title)
+int Playlist::FindTitle(const string title)
 {
 	for (int i = 0; i < currentSize; i++)	// Look at each entry.
 	{
-		if (strcmp(songList[i].GetTitle(), title) == 0)
+		if (songList[i].GetTitle() == title)
 			return i;						// return position and exit
 	}
 	return -1;								// if never found.
 }
 
-int Playlist::FindArtist(const char * artist)
+int Playlist::FindArtist(const string artist)
 {
 	for (int i = 0; i < currentSize; i++)	// Look at each entry
 	{
-		if (strcmp(songList[i].GetArtist(), artist) == 0)
+		if (songList[i].GetArtist() == artist)
 			return i;					// return position and exit
 	}
 	return -1;							// if never found
 }
 
-void Playlist::FromArtist(const char * artist)
+void Playlist::FromArtist(const string artist)
 {	
 	for (int i = 0; i < currentSize; i++)	// Look at each entry
 	{
-		if (strcmp(songList[i].GetArtist(), artist) == 0)
+		if (songList[i].GetArtist() == artist)
 		{
 			cout << songList[i];		// if by artist, print song details
 		}
 	}
 }
 
-void Playlist::Lookup(const char * string)
+void Playlist::Lookup(const string s)
 {
-	if(FindTitle(string) >= 0) 			//if function finds a match, print out first occurence
-		cout << songList[FindTitle(string)];
-	else if(FindArtist(string) >= 0)	//if function finds a match, print out all from artist
-		FromArtist(string);
+	if(FindTitle(s) >= 0) 			//if function finds a match, print out first occurence
+		cout << songList[FindTitle(s)];
+	else if(FindArtist(s) >= 0)	//if function finds a match, print out all from artist
+		FromArtist(s);
 	else
-		cout << string << ": Not Found\n\n";
+		cout << s << ": Not Found\n\n";
 }
 
-void Playlist::Delete(const char * s)
+void Playlist::Delete(const string s)
 {
 	if(FindTitle(s) == -1) 	//title not found
 		cout << s << " not found in playlist\n\n" << endl;
