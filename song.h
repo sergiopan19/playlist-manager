@@ -30,10 +30,6 @@ public:
   Style GetCategory() const;		// returns the song category
 
 private:
-  /*
-  char title[36];	// may assume title is 35 characters or less
-  char artist[21];	// may assume artist name is 20 characters or less
-  */
   string title;
   string artist;
   Style category;	// style of the given song
