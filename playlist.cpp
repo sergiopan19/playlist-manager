@@ -1,11 +1,3 @@
-/*
-Name: Sergio Pantoja
-Class: COP 3330 Section 6
-Assignment: Homework 4
-
-The following is the class definitions for the playlist class. 
-*/
-
 #include "playlist.h"
 
 using namespace std;

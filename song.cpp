@@ -1,11 +1,3 @@
-/*
-Name: Sergio Pantoja
-Class: COP 3330 Section 6
-Assignment: Homework 4
-
-The following is the definition for the song class.
-*/
-
 #include "song.h"
 
 using namespace std;

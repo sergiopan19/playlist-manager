@@ -1,11 +1,3 @@
-/*
-Name: Sergio Pantoja
-Class: COP 3330 Section 6
-Assignment: Homework 4
-
-The following is the header for the playlist class. 
-*/
-
 #include <iostream>
 #include "song.h"
 
