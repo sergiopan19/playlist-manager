@@ -49,7 +49,7 @@ void Playlist::FromArtist(const string artist)
 	{
 		if (songList[i].GetArtist() == artist)
 		{
-			cout << songList[i];		// if by artist, print song details
+			cout << songList[i] << endl;		// if by artist, print song details
 		}
 	}
 }
@@ -58,7 +58,7 @@ void Playlist::Lookup(const string s)
 {
 	if(FindTitle(s) >= 0) 			//if function finds a match, print out first occurence
 		cout << songList[FindTitle(s)];
-	else if(FindArtist(s) >= 0)	//if function finds a match, print out all from artist
+	else if(FindArtist(s) >= 0)		//if function finds a match, print out all from artist
 		FromArtist(s);
 	else
 		cout << s << ": Not Found\n\n";

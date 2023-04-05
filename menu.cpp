@@ -8,6 +8,7 @@ void Menu(); 				//prints menu
 void Selection(Playlist p);	//allows for user selection and mnipulation of playlist object
 Song Create();				//create new song object
 Style ChooseCategory();		//Select category
+string GetInput();
 
 int main()
 {
@@ -52,22 +53,17 @@ void Selection(Playlist p)
 				
 			case 'F':
 			case 'f':
-				int index;
-				char string[36];
+				cin.ignore();
 				cout << "Enter search string (title or artist) > ";
-				cin.ignore(1000, '\n'); //clears the buffer
-				cin.getline(string,36);
-				
-				p.Lookup(string); //Checks for matches in both title and artist and prints accordingly 
+
+				p.Lookup(GetInput()); //Checks for matches in both title and artist and prints accordingly 
 				break;
 			
 			case 'D':
 			case 'd':
-				char title[36];
+				cin.ignore();
 				cout << "Enter title to delete > ";
-				cin.ignore(1000, '\n'); //clears the buffer
-				cin.getline(title,36);
-				p.Delete(title);
+				p.Delete(GetInput());
 				break;
 				
 			case 'S':
@@ -76,9 +72,7 @@ void Selection(Playlist p)
 				break;
 			case 'C':
 			case 'c':
-				Style search;
-				search = ChooseCategory();
-				p.InCategory(search);
+				p.InCategory(ChooseCategory());
 				break;
 			case 'Z':
 			case 'z':
@@ -102,16 +96,17 @@ void Selection(Playlist p)
 Song Create()
 {
 	int size;
-	char title[36], artist[21];
+	string title, artist;
 	Style st;
 	Song input;
-				
-	cin.ignore(1000, '\n'); //clears the buffer
+	
+	cin.ignore();
+	
 	cout << "\nEnter song title: ";
-	cin.getline(title,35,'\n');
+	title = GetInput();
 				
 	cout << "Enter artist: ";
-	cin.getline(artist,20,'\n');
+	artist = GetInput();
 			
 	st = ChooseCategory();
 				
@@ -142,7 +137,6 @@ Style ChooseCategory()
 	do
 	{
 		cout << "Enter Category - (P)op, (R)ock, (A)lternative, (C)ountry, (H)iphop, or Parod(Y): ";
-		//cin.ignore('\n'); //clears the buffer
 		cin >> c;
 		
 		switch (c) {
@@ -177,4 +171,12 @@ Style ChooseCategory()
 	} while(valid == false);	
 
 	return result;
+}
+
+string GetInput() {
+	string input;
+
+	getline(cin, input);
+
+	return input;
 }
